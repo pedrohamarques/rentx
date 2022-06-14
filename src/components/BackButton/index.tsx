@@ -10,13 +10,14 @@ import {
 
 interface Props extends TouchableOpacityProps {
     color?: string;
+    onPress: () => void;
 }
 
-export function BackButton({ color } : Props){
+export function BackButton({ color, onPress } : Props){
     const theme = useTheme();
 
     return (
-        <Container>
+        <Container onPress={onPress}>
             <MaterialIcons 
                 name= 'chevron-left'
                 size={24}

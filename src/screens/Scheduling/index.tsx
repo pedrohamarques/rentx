@@ -29,6 +29,10 @@ export function Scheduling() {
         navigation.navigate('SchedulingDetails');
     }
 
+    function handleGoBack() {
+        navigation.navigate('CarDetails');
+    }
+
     return (
         <Container>
             <Header>
@@ -38,7 +42,7 @@ export function Scheduling() {
                 backgroundColor='transparent' />
 
                 <BackButton
-                    onPress={() => { }}
+                    onPress={handleGoBack}
                     color={theme.colors.shape}
                 />
 

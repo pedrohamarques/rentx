@@ -28,11 +28,12 @@ interface CarData {
 
 interface Props extends TouchableOpacityProps {
     data: CarData
+    onPress: () => void;
     }
 
-export function Car({ data, ...rest } : Props){
+export function Car({ data, onPress } : Props){
     return (
-        <Container {...rest}>
+        <Container onPress={onPress}>
             <Details>
                 <Brand>{data.brand}</Brand>
                 <Name>{data.name}</Name>
