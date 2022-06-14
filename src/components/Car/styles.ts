@@ -1,7 +1,11 @@
 import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+interface Props {
+    theme: string;
+}
+
+export const Container = styled.TouchableOpacity<Props>`
     width: 100%;
     height: 126px;
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import { TouchableOpacityProps } from 'react-native';
 
 interface ButtonProps extends TouchableOpacityProps {
     color: string;
@@ -13,7 +13,7 @@ export const Container = styled.TouchableOpacity<ButtonProps>`
     align-items: center;
     justify-content: center;
 
-    background-color: ${({ color, theme }) => color ? color : theme.colors.main};
+    background-color: ${({ color }) => color };
 `;
 
 export const Title = styled.Text`
