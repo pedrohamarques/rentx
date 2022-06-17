@@ -1,9 +1,10 @@
 declare namespace ReactNavigation {
     export interface RootParamList {
         Home: undefined
-        CarDetails: undefined
-        Scheduling: undefined
+        CarDetails: { car : any } | undefined
+        Scheduling: { car : any } | undefined
         SchedulingComplete: undefined
-        SchedulingDetails: undefined
+        SchedulingDetails: { car, dates: any} | undefined
+        MyCars: undefined
     }
 }
