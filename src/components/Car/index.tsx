@@ -19,7 +19,7 @@ import {
 
 interface Props extends TouchableOpacityProps {
     data: CarDTO
-    onPress: () => void;
+    onPress?: () => void;
     }
 
 export function Car({ data, onPress } : Props){
