@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, LogBox } from 'react-native';
 // import AppLoading from 'expo-app-loading';
 import * as SplashScreen from 'expo-splash-screen';
 import { ThemeProvider } from 'styled-components';
@@ -34,6 +34,8 @@ export default function App() {
     // return <AppLoading />
     return null;
   }
+
+  LogBox.ignoreLogs(['ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from \'deprecated-react-native-prop-types\'.'])
 
   SplashScreen.hideAsync();
 
