@@ -7,4 +7,4 @@ declare namespace ReactNavigation {
         SchedulingDetails: { car, dates: any} | undefined
         MyCars: undefined
     }
-}
+} 
