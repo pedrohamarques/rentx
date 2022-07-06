@@ -3,6 +3,7 @@ import { StatusBar, LogBox } from 'react-native';
 // import AppLoading from 'expo-app-loading';
 import * as SplashScreen from 'expo-splash-screen';
 import { ThemeProvider } from 'styled-components';
+import { AppProvider } from './src/hooks';
 
 import {
   useFonts,
@@ -41,7 +42,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Routes />
+      <AppProvider>
+        <Routes />
+      </AppProvider>
     </ThemeProvider>
   )
 }

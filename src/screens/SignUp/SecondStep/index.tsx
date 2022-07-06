@@ -7,7 +7,8 @@ import { BackButton } from '../../../components/BackButton';
 import { Bullet } from '../../../components/Bullet';
 import { PasswordInput } from '../../../components/PasswordInput';
 import { Button } from '../../../components/Button';
-import { Confirmation } from '../../Confirmation';
+
+import { api } from '../../../services/api';
 
 import {
     Container,
@@ -37,19 +38,31 @@ export function SecondStep() {
 
     const { user } = route.params as Params;
 
-    function handleRegister() {
+    async function handleRegister() {
         if(!password || !passwordConfirm) {
             return Alert.alert('Ambos os campos são obrigatórios');
         }
         if(password != passwordConfirm) {
             return Alert.alert('As senhas não conferem');
         }
-        navigation.navigate('Confirmation', {
-            nextScreenRoute: 'SignIn',
-            title: 'Conta criada!',
-            message: `Agora é só fazer login\ne aproveitar`,
+
+        await api.post("/users", {
+            name: user.name,
+            email: user.email,
+            driver_license: user.driverLicense,
+            password
+        }).then(() => {
+            navigation.navigate('Confirmation', {
+                nextScreenRoute: 'SignIn',
+                title: 'Conta criada!',
+                message: `Agora é só fazer login\ne aproveitar`,
+            });
+        }).catch((error) => {
+            console.log(error)
+            Alert.alert('Opa', 'Não foi possível cadastrar');
         });
     }
+
 
 
     function handleGoBack() {

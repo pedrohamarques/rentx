@@ -4,6 +4,8 @@ import theme from '../../styles/theme';
 import * as Yup from 'yup';
 import { useNavigation } from '@react-navigation/native';
 
+import { useAuth } from '../../hooks/auth';
+
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { PasswordInput } from '../../components/PasswordInput';
@@ -23,6 +25,8 @@ export function SignIn() {
 
     const navigation = useNavigation();
 
+    const { signIn } = useAuth();
+
     async function handleSignIn() {
         try {
             const schema = Yup.object().shape({
@@ -36,6 +40,9 @@ export function SignIn() {
             });
 
             await schema.validate({ email, password })
+
+            signIn({ email, password });
+            Alert.alert('Tudo certo!')
         } catch(error) {
             if(error instanceof Yup.ValidationError) {
                 Alert.alert('Opa', error.message)
