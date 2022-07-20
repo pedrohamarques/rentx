@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
 import theme from '../../styles/theme';
 import * as Yup from 'yup';
@@ -42,9 +42,8 @@ export function SignIn() {
             await schema.validate({ email, password })
 
             signIn({ email, password });
-            Alert.alert('Tudo certo!')
-        } catch(error) {
-            if(error instanceof Yup.ValidationError) {
+        } catch (error) {
+            if (error instanceof Yup.ValidationError) {
                 Alert.alert('Opa', error.message)
             } else {
                 Alert.alert('Erro na autenticação', 'Ocorreu um erro ao fazer login. Verifique as credenciais')

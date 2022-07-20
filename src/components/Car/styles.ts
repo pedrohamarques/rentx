@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const Container = styled.TouchableOpacity<Props>`
-    width: 100%;
+    width: 95%;
     height: 126px;
 
     background-color: ${({ theme }) => theme.colors.background_secondary};

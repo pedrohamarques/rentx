@@ -51,6 +51,7 @@ export function PasswordInput({ iconName, value, ...rest }: InputProps) {
                 secureTextEntry={isPasswordVisible}
                 onFocus={handleInputFocus} //entrar na caixa
                 onBlur={handleInputBlur}  //sair da caixa
+                autoCorrect={false}
                 {...rest}
             />
 
