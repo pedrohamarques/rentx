@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacityProps } from 'react-native';
 
 import { CarDTO } from '../../dtos/CarDTO';
+import { Car as ModelCar} from '../../databases/model/Car';
 import { getAccessoryIcon } from '../../utils/getAccessoryIcons';
 
 import {
@@ -18,7 +19,7 @@ import {
 } from './styles';
 
 interface Props extends TouchableOpacityProps {
-    data: CarDTO
+    data: ModelCar
     onPress?: () => void;
     }
 
